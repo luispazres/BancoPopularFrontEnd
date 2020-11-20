@@ -5,12 +5,15 @@ export class  SolicitudModel implements Solicitud {
     nombreCompleto:  string;
     numeroIdentidad: string;
     fechaSolicitud:  string;
+    tipoPrestamoId:  number;
     tipoPrestamo:    string;
     montoSolicitado: number;
     plazo:           number;
-    codigoAsesor:    number;
+    asesorId:        number;
+    asesor:          string;
     ciudad:          string;
-    estadoSolicitud: string;
+    estadoId:        number;
+    estado:          string;
 
     constructor() {
         
