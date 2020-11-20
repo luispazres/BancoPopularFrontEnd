@@ -1,0 +1,140 @@
+
+<h1>Solicitud de Crédito</h1>
+<hr>
+
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger"
+            routerLink="/solicitudes">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form (ngSubmit)="guardar( forma )"
+          #forma="ngForm">
+
+      <div class="form-group">
+        <label>Número Solicitud</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Número Solicitud"
+               [(ngModel)]="solicitud.numeroSolicitud"
+               name="numeroSolicitud"
+               disabled="disabled">
+        <small class="form-text text-muted">Este campo es autogenerado</small>
+      </div>
+
+
+      <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Nombre Completo"
+                 [class.is-invalid]="nombreCompleto.invalid && nombreCompleto.touched"
+                 [(ngModel)]="solicitud.nombreCompleto"
+                 name="nombreCompleto"
+                 #nombreCompleto="ngModel"
+                 required>
+          <small *ngIf="nombreCompleto.invalid && nombreCompleto.touched" class="form-text text-danger">Este campo es obligatorio</small>
+      </div>
+      <div class="form-group">
+          <label>Número de Identidad</label>
+          <input type="number"
+                 minlength="13"
+                 class="form-control"
+                 placeholder="Número de Identidad"
+                 [class.is-invalid]="numeroIdentidad.invalid && numeroIdentidad.touched"
+                 [(ngModel)]="solicitud.numeroIdentidad"
+                 name="numeroIdentidad"
+                 #numeroIdentidad="ngModel"
+                 required>
+          <small *ngIf="numeroIdentidad.invalid && numeroIdentidad.touched" class="form-text text-danger">Este campo debe contener 13 caracteres</small>
+      </div>
+      <div class="form-group">
+          <label>Monto Soliciado</label>
+          <input type="number"
+                 class="form-control"
+                 placeholder="Monto Solicitado"
+                 [class.is-invalid]="montoSolicitado.invalid && montoSolicitado.touched"
+                 [(ngModel)]="solicitud.montoSolicitado"
+                 name="montoSolicitado"
+                 #montoSolicitado="ngModel"
+                 required>
+          <small *ngIf="montoSolicitado.invalid && montoSolicitado.touched" class="form-text text-danger">Este campo es obligatorio</small>
+      </div>
+      <div class="form-group">
+          <label>Plazo en Meses</label>
+          <input type="number"
+                 class="form-control"
+                 placeholder="Plazo en Meses"
+                 [class.is-invalid]="plazo.invalid && plazo.touched"
+                 [(ngModel)]="solicitud.plazo"
+                 name="plazo"
+                 #plazo="ngModel"
+                 required>
+          <small *ngIf="plazo.invalid && plazo.touched" class="form-text text-danger">Este campo es obligatorio</small>
+      </div>
+      <div class="form-group">
+          <label>Ciudad</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Ciudad"
+                 [class.is-invalid]="ciudad.invalid && ciudad.touched"
+                 [(ngModel)]="solicitud.ciudad"
+                 name="ciudad"
+                 #ciudad="ngModel"
+                 required>
+          <small *ngIf="ciudad.invalid && ciudad.touched" class="form-text text-danger">Este campo es obligatorio</small>
+      </div>
+     <div class="form-group">
+       <label>Tipo Préstamo</label>
+         <select class="form-control"
+                 name="tipoPrestamo"
+                 [disabled]="tipoPrestamos.length === 0"
+                 [class.is-invalid]="tipoPrestamo.invalid && tipoPrestamo.touched"
+                 [ngModel]="solicitud.tipoPrestamo"
+                 required
+                 #tipoPrestamo="ngModel">
+           <option *ngFor="let tipoPrestamo of tipoPrestamos"
+                   [value]="tipoPrestamo.id">
+             {{ tipoPrestamo.nombre }}
+           </option>
+         </select>
+     </div>
+      <div class="form-group">
+          <label>Código Asesor</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Código Asesor"
+                 [class.is-invalid]="codigoAsesor.invalid && codigoAsesor.touched"
+                 [(ngModel)]="solicitud.codigoAsesor"
+                 name="codigoAsesor"
+                 #codigoAsesor="ngModel"
+                 required>
+          <small *ngIf="codigoAsesor.invalid && codigoAsesor.touched" class="form-text text-danger">Este campo es obligatorio</small>
+      </div>
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit"
+                class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
+
+

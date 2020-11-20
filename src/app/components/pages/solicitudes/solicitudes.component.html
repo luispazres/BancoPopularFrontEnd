@@ -1,0 +1,90 @@
+<div class="row mb-2">
+  <div class="col text-left">
+    <h1>Lista de Solicitudes</h1>
+  </div>
+  <div class="col text-right">
+    <button routerLink="/solicitud/nuevo"
+            class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Agregar Solicitud
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive ">
+      <table *ngIf="!cargando && solicitudes.length > 0" datatable  class="table table-bordered mt-3 animated fadeIn faster animated fadeIn faster">
+        <thead class="thead-dark">
+          <tr>
+            <th>Número de Solicitud</th>
+            <th>Nombre Completo</th>
+            <th>Identidad</th>
+            <th>Monto Solicitado</th>
+            <th>Plazo en Meses</th>
+            <th>Tipo de Préstamo</th>
+            <th>Ciudad</th>
+            <th>Fecha de Solicitud</th>
+            <th>Código Asesor</th>
+            <th>Estado de la Solicitud</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let solicitud of solicitudes; index as i">
+            <td>{{solicitud.numeroSolicitud}}</td>
+            <td>{{solicitud.nombreCompleto}}</td>
+            <td>{{solicitud.numeroIdentidad}}</td>
+            <td>{{solicitud.montoSolicitado}}</td>
+            <td>{{solicitud.plazo}}</td>
+            <td>{{solicitud.tipoPrestamo}}</td>
+            <td>{{solicitud.ciudad}}</td>
+            <td>{{solicitud.fechaSolicitud}}</td>
+            <td>{{solicitud.codigoAsesor}}</td>
+            <td>
+              <span  class="badge badge-s"></span>
+              <button *ngIf="solicitud.estadoSolicitud == 'Activa'" type="button" class="btn btn-primary">
+                {{solicitud.estadoSolicitud}} 
+                <span class="sr-only"></span>
+              </button>
+              <button *ngIf="solicitud.estadoSolicitud == 'Cancelada'" type="button" class="btn btn-danger">
+                {{solicitud.estadoSolicitud}} 
+                <span class="sr-only"></span>
+              </button>
+              <button *ngIf="solicitud.estadoSolicitud == 'Proceso/Acreditada'" type="button" class="btn btn-success">
+                {{solicitud.estadoSolicitud}} 
+                <span class="sr-only"></span>
+              </button>
+            </td>
+            <td>
+                <button type="button" [routerLink]="['/solicitud', solicitud.numeroSolicitud ]"  class="btn btn-warning mr-2"><i class="fa fa-edit"></i>Editar</button>
+                <button type="button" [routerLink]="['/solicitud', solicitud.numeroSolicitud ]" class="btn btn-danger"><i class="fa fa-trash"></i>Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="!cargando && solicitudes.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+      <h4 class="alert-heading">No hay registros</h4>
+      <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+      </p>
+    </div>
+  
+    <div *ngIf="cargando" 
+        class="alert alert-info text-center mt-3 animated fadeIn faster">
+      <h4 class="alert-heading">Cargando</h4>
+      <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+      </p>
+      <p class="mb-0">
+        Espere por favor
+      </p>
+    </div>
+  </div>
+ 
+</div>
+
+  
