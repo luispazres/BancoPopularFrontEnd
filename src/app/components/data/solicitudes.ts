@@ -10,8 +10,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Mipime",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Activa"
+      asesorId: 1,
+      estado: "Activa",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
     {
       numeroSolicitud: 1,
@@ -22,9 +25,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Agro",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Activa"
-
+      asesorId: 1,
+      estado: "Activa",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
     {
       numeroSolicitud: 2,
@@ -35,8 +40,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Agro",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Cancelada"
+      asesorId: 1,
+      estado: "Cancelada",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
     {
       numeroSolicitud: 3,
@@ -47,8 +55,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Agro",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Proceso/Acreditada"
+      asesorId: 1,
+      estado: "Proceso/Acreditada",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
     {
       numeroSolicitud: 4,
@@ -59,8 +70,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Agro",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Cancelada"
+      asesorId: 1,
+      estado: "Cancelada",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
     {
       numeroSolicitud: 5,
@@ -71,8 +85,11 @@ export const solicitudes: Solicitud[] = [
       plazo: 10,
       tipoPrestamo: "Agro",
       fechaSolicitud: "20/11/2020",
-      codigoAsesor: 1,
-      estadoSolicitud: "Activa"
+      asesorId: 1,
+      estado: "Activa",
+      asesor: "Eduardo",
+      estadoId: 1,
+      tipoPrestamoId: 1
     },
    
   ];

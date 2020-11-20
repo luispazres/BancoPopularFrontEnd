@@ -114,12 +114,12 @@
           <input type="text"
                  class="form-control"
                  placeholder="Código Asesor"
-                 [class.is-invalid]="codigoAsesor.invalid && codigoAsesor.touched"
-                 [(ngModel)]="solicitud.codigoAsesor"
-                 name="codigoAsesor"
-                 #codigoAsesor="ngModel"
+                 [class.is-invalid]="asesorId.invalid && asesorId.touched"
+                 [(ngModel)]="solicitud.asesorId"
+                 name="asesorId"
+                 #asesorId="ngModel"
                  required>
-          <small *ngIf="codigoAsesor.invalid && codigoAsesor.touched" class="form-text text-danger">Este campo es obligatorio</small>
+          <small *ngIf="asesorId.invalid && asesorId.touched" class="form-text text-danger">Este campo es obligatorio</small>
       </div>
       <hr>
       <div class="form-group text-center">

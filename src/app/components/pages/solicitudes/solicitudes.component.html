@@ -40,19 +40,19 @@
             <td>{{solicitud.tipoPrestamo}}</td>
             <td>{{solicitud.ciudad}}</td>
             <td>{{solicitud.fechaSolicitud}}</td>
-            <td>{{solicitud.codigoAsesor}}</td>
+            <td>{{solicitud.asesorId}}</td>
             <td>
               <span  class="badge badge-s"></span>
-              <button *ngIf="solicitud.estadoSolicitud == 'Activa'" type="button" class="btn btn-primary">
-                {{solicitud.estadoSolicitud}} 
+              <button *ngIf="solicitud.estado == 'Activa'" type="button" class="btn btn-primary">
+                {{solicitud.estado}} 
                 <span class="sr-only"></span>
               </button>
-              <button *ngIf="solicitud.estadoSolicitud == 'Cancelada'" type="button" class="btn btn-danger">
-                {{solicitud.estadoSolicitud}} 
+              <button *ngIf="solicitud.estado == 'Cancelada'" type="button" class="btn btn-danger">
+                {{solicitud.estado}} 
                 <span class="sr-only"></span>
               </button>
-              <button *ngIf="solicitud.estadoSolicitud == 'Proceso/Acreditada'" type="button" class="btn btn-success">
-                {{solicitud.estadoSolicitud}} 
+              <button *ngIf="solicitud.estado == 'Proceso/Acreditada'" type="button" class="btn btn-success">
+                {{solicitud.estado}} 
                 <span class="sr-only"></span>
               </button>
             </td>

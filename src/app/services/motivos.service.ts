@@ -1,48 +1,48 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, delay } from 'rxjs/operators';
-import { Motivo, Convert } from '../interfaces/motivo';
+import { Solicitud, Convert } from '../interfaces/solicitud';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MotivosService {
+export class SolicitudesService {
 
-  private url = 'https://localhost/DetektorBackEnd/api';
+  private url = 'https://localhost/BancoPopularBackEnd/api/solicitudes';
 
   constructor( private http: HttpClient) { }
 
-  crearMotivo(motivo: Motivo){
-    return this.http.post(`${ this.url}/create.php`, Convert.motivoToJson(motivo))
+  crearSolicitud(solicitud: Solicitud){
+    return this.http.post(`${ this.url}/create.php`, Convert.solicitudToJson(solicitud))
       .pipe(
         map( (resp: any) => {
-          motivo.motivo = resp.name;
-          return motivo;
+          solicitud.numeroSolicitud = resp.name;
+          return solicitud;
         })
       );
   }
 
-  modificarMotivo(motivo: Motivo){
-    return this.http.post(`${ this.url}/update.php`, Convert.motivoToJson(motivo))
+  modificarSolicitud(solicitud: Solicitud){
+    return this.http.post(`${ this.url}/update.php`, Convert.solicitudToJson(solicitud))
       .pipe(
         map( (resp: any) => {
-          motivo.motivo = resp.name;
-          return motivo;
+          solicitud.numeroSolicitud = resp.name;
+          return solicitud;
         })
       );
   }
 
-  borrarMotivo( motivo: number){
-    let httpParams = new HttpParams().set('motivo', `${motivo}`);
+  borrarSolicitud( numeroSolicitud: number ){
+    let httpParams = new HttpParams().set('numeroSolicitud', `${numeroSolicitud}`);
     let options = { params: httpParams };
     return this.http.delete(`${ this.url}/delete.php`, options);
   }
 
-  getMotivo( motivo: number){
-    return this.http.get(`${ this.url }/single_read.php/?motivo=${motivo}`);
+  getSolicitud( numeroSolicitud: number){
+    return this.http.get(`${ this.url }/single_read.php/?numeroSolicitud=${numeroSolicitud}`);
   }
 
-  getMotivos(){
+  getSolicitudes(){
     return this.http.get(`${ this.url }/read.php`)
            .pipe(
              map( this.crearArreglo ),
@@ -50,20 +50,20 @@ export class MotivosService {
            );
   }
 
-  private crearArreglo( motivoObj: object ) {
+  private crearArreglo( solicitudObj: object ) {
 
-    const motivos: Motivo[] = [];
+    const solicitudes: Solicitud[] = [];
 
-    Object.keys( motivoObj ).forEach( key => {
+    Object.keys( solicitudObj ).forEach( key => {
 
-      const motivo: Motivo = motivoObj[key];
-      motivo.motivo = parseInt(key);
+      const solicitud: Solicitud = solicitudObj[key];
+      solicitud.numeroSolicitud = parseInt(key);
 
-      motivos.push( motivo );
+      solicitudes.push( solicitud );
     });
 
 
-    return motivos;
+    return solicitudes;
 
   }
 }
